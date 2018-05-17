@@ -23,6 +23,10 @@
     "eip150Block": 1,
     "eip150Hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "eip158Block": 1,
+    "istanbul": {
+        "epoch": 30000,
+        "policy": 0
+      },
     "isQuorum":true
   },
   "difficulty": "0x0",
