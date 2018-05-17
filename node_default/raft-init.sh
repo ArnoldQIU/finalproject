@@ -12,4 +12,4 @@ cp permissioned-nodes.json qdata/dd/static-nodes.json
 cp permissioned-nodes.json qdata/dd/
 cp key qdata/dd/keystore
 cp nodekey qdata/dd/geth/nodekey
-geth --datadir qdata/dd init genesis.json
+geth --datadir qdata/dd init istanbul-genesis.json
