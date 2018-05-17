@@ -119,8 +119,8 @@ do
 	kubectl exec $POD_NAME -- bash -c "mkdir -p /home/node"
 	kubectl cp node_default/istanbul-genesis.json $POD_NAME:/home/node/istanbul-genesis.json
 	kubectl cp node_default/passwords.txt $POD_NAME:/home/node/passwords.txt
-	kubectl cp node_default/raft-init.sh $POD_NAME:/home/node/raft-init.sh
-	kubectl cp node_default/raft-start.sh $POD_NAME:/home/node/raft-start.sh
+	kubectl cp node_default/istanbul-init.sh $POD_NAME:/home/node/istanbul-init.sh
+	kubectl cp node_default/istanbul-start.sh $POD_NAME:/home/node/istanbul-start.sh
 	kubectl cp node_default/stop.sh $POD_NAME:/home/node/stop.sh
 	echo "Copy folder to node$v ok"
 done
@@ -198,7 +198,7 @@ do
   kubectl exec $(kubectl get pods --selector=node=node$v|  awk 'NR>1 {print $1}') -- bash -c \
   "cd home/node && ./stop.sh"
 	kubectl exec $(kubectl get pods --selector=node=node$v|  awk 'NR>1 {print $1}') -- bash -c \
-	"cd home/node && ./raft-init.sh && ./raft-start.sh &" &
+	"cd home/node && ./istanbul-init.sh && ./istanbul-start.sh &" &
   echo "No.$v node key ok"
 done
 
