@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: 7node
-        image: markpengisme/7node:node${deploy}
+        image: markpengisme/7node:node
         imagePullPolicy: Always
         command: [\"/bin/bash\", \"-c\", \"--\"]
         args: ['-c', 'while true; do echo hello; sleep 10;done']
