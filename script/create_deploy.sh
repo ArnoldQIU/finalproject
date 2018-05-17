@@ -26,7 +26,7 @@ spec:
       - name: 7node
         image: markpengisme/7node:node
         imagePullPolicy: Always
-        command: [\"/bin/bash\", \"-c\", \"--\"]
+        command: [\"/bin/sh\", \"-c\", \"--\"]
         args: ['-c', 'while true; do echo hello; sleep 10;done']
         ports:
         - name: raftport
