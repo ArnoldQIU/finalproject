@@ -35,9 +35,6 @@ spec:
   - name: ipc
     port: 21000
     targetPort: 21000
-  - name: raftport
-    port: 50400
-    targetPort: 50400
   - name: rpcport
     port: 22000
     targetPort: 22000
@@ -82,8 +79,6 @@ spec:
         command: ['/bin/sh']
         args: ['-c', 'while true; do echo hello; sleep 10;done']
         ports:
-        - name: raftport
-          containerPort: 50400
         - name: rpcport
           containerPort: 22000
         - name: ipc
