@@ -42,9 +42,10 @@ spec:
         volumeMounts:
         - mountPath: /node
           name: test-volume
-      volumes: 
-      - name: test-volume
-        gcePersistentDisk:
+
+        volumes:
+        - name: test-volume
+          gcePersistentDisk:
           pdName: my-data-disk
           fsType:ext4 " > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
