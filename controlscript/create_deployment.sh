@@ -1,8 +1,8 @@
-NUM=$1
-for deploy in `seq $NUM`
+NUM_START=$1
+NUM_END=$2
+for deploy in `seq $NUM_START $NUM_END`
 do 
-  echo "
-apiVersion: apps/v1
+	echo "apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node${deploy}
@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: 7node
-        image: markpengisme/7node:node${deploy}
+        image: markpengisme/7node:node_cake
         imagePullPolicy: Always
         command: ['/bin/sh']
         args: ['-c', 'while true; do echo hello; sleep 10;done']
@@ -38,8 +38,7 @@ spec:
         - name: geth
           containerPort: 9000
         - name: ui
-          containerPort: 8080
-  " > deploy${deploy}.yaml
-  kubectl apply -f deploy${deploy}.yaml
-  rm deploy${deploy}.yaml
+          containerPort: 8080" > deploy${deploy}.yaml
+	kubectl apply -f deploy${deploy}.yaml
+	rm deploy${deploy}.yaml
 done
