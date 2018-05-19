@@ -44,9 +44,9 @@ spec:
           name: test-volume
       volumes:
       - name: test-volume
-      hostPath:
-        path: /node_default
-        type: File" > deploy${deploy}.yaml
+        hostPath:
+          path: /node_default
+          type: Directory" > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
 	rm deploy${deploy}.yaml
 done
