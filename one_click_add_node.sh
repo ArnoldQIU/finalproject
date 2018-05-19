@@ -68,7 +68,7 @@ else
 	exit 0 
 fi
 
-chmod 775 controlscript/*.sh
+chmod 755 controlscript/*.sh
 ##service
 sh controlscript/create_service.sh $NUM_START $NUM_END
 
@@ -89,5 +89,5 @@ sh controlscript/generate_permissioned.sh $NUM
 sh controlscript/deploy.sh $NUM_START $NUM_END
 
 ## UI
-nohup /controlscript/ui.sh $NUM_START $NUM_END > /dev/null 2>&1 &
-## sh controlscript/ui.sh $NUM_START $NUM_END
+
+sh controlscript/ui.sh $NUM_START $NUM_END
