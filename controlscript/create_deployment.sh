@@ -42,8 +42,7 @@ spec:
         volumeMounts:
         - mountPath: /node
           name: test-volume
-
-      volumes: 
+      volumes:
       - name: test-volume
         gcePersistentDisk:
         pdName: my-data-disk
