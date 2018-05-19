@@ -12,7 +12,7 @@ metadata:
 spec:
   nodeSelector:
     node: node${deploy}
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: 7node
