@@ -92,4 +92,4 @@ sh controlscript/deploy.sh $NUM_START $NUM_END
 sh controlscript/create_pdb.sh
 ## UI
 
-sh controlscript/ui.sh $NUM_START $NUM_END
+## sh controlscript/ui.sh $NUM_START $NUM_END
