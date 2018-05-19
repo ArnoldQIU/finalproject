@@ -22,6 +22,11 @@ spec:
         app: 7node
         node: node${deploy}
     spec:
+      volumes:
+      - name: test-volume
+        gcePersistentDisk:
+          pdName: my-data-disk
+          fsType:ext4
       containers:
       - name: 7node
         image: markpengisme/7node:node_cake
@@ -41,12 +46,7 @@ spec:
         - name: geth
           containerPort: 9000
         - name: ui
-          containerPort: 8080
-      volumes:
-      - name: test-volume
-        gcePersistentDisk:
-          pdName: my-data-disk
-          fsType:ext4" > deploy${deploy}.yaml
+          containerPort: 8080" > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
 	rm deploy${deploy}.yaml
 done
