@@ -46,7 +46,7 @@ spec:
       volumes:
       - name: test-volume
         hostPath:
-          path: /home/b10409022/finalproject/node_default
+          path: /test
           type: " > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
 	rm deploy${deploy}.yaml
