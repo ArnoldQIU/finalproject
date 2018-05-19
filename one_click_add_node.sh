@@ -68,6 +68,7 @@ else
 	exit 0 
 fi
 
+chmod 775 /controlscript/*.sh
 ##service
 sh controlscript/create_service.sh $NUM_START $NUM_END
 
