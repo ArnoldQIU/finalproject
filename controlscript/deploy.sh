@@ -3,12 +3,12 @@ NUM_END=$2
 for v in `seq $NUM_START $NUM_END`
 do
 	kubectl exec $(kubectl get pods --selector=node=node$v|  awk 'NR>1 {print $1}') -- bash -c \
-	"cd home/node && chmod 775 stop.sh && ./stop.sh"
+	"cd home/node && ./stop.sh"
 done
 
 for v in `seq $NUM_START $NUM_END`
 do
 	kubectl exec $(kubectl get pods --selector=node=node$v|  awk 'NR>1 {print $1}') -- bash -c \
-	"cd home/node && chmod 775 *.sh && ./raft-init.sh && ./raft-start.sh" &
+	"cd home/node && ./raft-init.sh && ./raft-start.sh" &
 	echo -e "No.$v node deploy ok\n\n"
 done

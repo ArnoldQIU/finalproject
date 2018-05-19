@@ -3,15 +3,17 @@ re='^[0-9]+$'
 while true
 do
 	echo "================="
-	echo "Please enter 1~3"
+	echo "Please enter 1~5"
 	echo "1.Quick deployment N's node"
 	echo "2.Quick add N's node"
 	echo "3.Delete node"
+	echo "4.Change UI"
+	echo "5.Blocak generator"
 	read FEATURE
 	if ! [[ $FEATURE =~ $re ]] ; then
 		echo -e "error: Not a number\n"
-	elif [ $FEATURE -lt 1 ] || [ $FEATURE -gt 3 ] ; then
-		echo -e "error: Please input 1~3\n"
+	elif [ $FEATURE -lt 1 ] || [ $FEATURE -gt 5 ] ; then
+		echo -e "error: Please input 1~5\n"
 	else 
 		break
 	fi
@@ -63,12 +65,21 @@ elif [ $FEATURE -eq 3 ] ; then
 		break
 	done
 	exit 0
+elif [ $FEATURE -eq 4 ] ; then
+	echo "What node do you wanna connect to ui:"
+	echo -e "eg:\n input:1\n connect ui to node1"
+	read NUM
+	sh controlscript/create_ui.sh $NUM
+	exit 0
+elif [ $FEATURE -eq 5 ] ; then
+	echo "Start create block:"
+	sh controlscript/create_block.sh 
+	exit 0
 else
 	echo "some error"
 	exit 0 
 fi
 
-chmod 755 controlscript/*.sh
 ##service
 sh controlscript/create_service.sh $NUM_START $NUM_END
 
@@ -88,8 +99,5 @@ sh controlscript/generate_permissioned.sh $NUM
 ##blockchain deploy
 sh controlscript/deploy.sh $NUM_START $NUM_END
 
-##pdb
-sh controlscript/create_pdb.sh
-## UI
-
-## sh controlscript/ui.sh $NUM_START $NUM_END
+##creat ui
+sh controlscript/create_ui.sh 1
