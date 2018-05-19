@@ -37,9 +37,10 @@ spec:
           containerPort: 21000
         - name: geth
           containerPort: 9000
-      volumeMounts: 
-        - name: 7node-map
-          mountPath: /quorum
+        volumeMounts: 
+        - mountPath: /quorum 
+          name: 7node-map
+          
       volumes:
         - name: 7node-map
           configMap:
