@@ -4,7 +4,7 @@ metadata:
   name: example-pv
 spec:
   capacity:
-    storage: 100Gi
+    storage: 10Gi
   # volumeMode field requires BlockVolume Alpha feature gate to be enabled.
   volumeMode: Filesystem
   accessModes:
@@ -12,7 +12,7 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: local-storage
   local:
-    path: /home/b10409022/finalproject/controlscript
+    path: /mnt/disks/ssd1
   nodeAffinity:
     required:
       nodeSelectorTerms:
