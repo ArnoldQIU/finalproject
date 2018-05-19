@@ -36,7 +36,14 @@ spec:
         - name: ipc
           containerPort: 21000
         - name: geth
-          containerPort: 9000" > deploy${deploy}.yaml
+          containerPort: 9000
+      volumeMounts:
+      -name: config-volume
+      mountPath: /home/test_volume
+      volumes:
+        - name: config-volume
+          configMap:
+            name: 7node-map" > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
 	rm deploy${deploy}.yaml
 done
