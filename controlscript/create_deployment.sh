@@ -38,7 +38,16 @@ spec:
         - name: geth
           containerPort: 9000
         - name: ui
-          containerPort: 8080" > deploy${deploy}.yaml
+          containerPort: 8080
+        volumeMounts:
+        - mountPath: /quorum
+          name: git-volume
+      volumes:
+      - name: test-volume
+      gcePersistentDisk:
+        pdName: my-data-disk
+        fsType: ext4
+" > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
 	rm deploy${deploy}.yaml
 done
