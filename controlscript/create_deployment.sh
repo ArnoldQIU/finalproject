@@ -41,7 +41,7 @@ spec:
           containerPort: 8080
         volumeMounts:
         - mountPath: /quorum
-          name: git-volume
+          name: test-volume
       volumes:
       - name: test-volume
       gcePersistentDisk:
