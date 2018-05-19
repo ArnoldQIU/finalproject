@@ -43,7 +43,6 @@ spec:
         - mountPath: /node
           name: test-volume
 
-          
       volumes:
       - name: test-volume
         gcePersistentDisk:
