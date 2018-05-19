@@ -21,7 +21,7 @@ spec:
       labels:
         app: 7node
         node: node${deploy}
-  volumes:
+  volumes: 
       - name: test-volume
         gcePersistentDisk:
           pdName: my-data-disk
