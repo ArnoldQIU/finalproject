@@ -21,19 +21,11 @@ spec:
       labels:
         app: 7node
         node: node${deploy}
-  volumes: 
-      - name: test-volume
-        gcePersistentDisk:
-          pdName: my-data-disk
-          fsType:ext4
     spec:
       containers:
       - name: 7node
         image: markpengisme/7node:node_cake
         imagePullPolicy: Always
-        volumeMounts:
-        - mountPath: /node
-          name: test-volume
         command: ['/bin/sh']
         args: ['-c', 'while true; do echo hello; sleep 10;done']
         ports:
@@ -46,7 +38,15 @@ spec:
         - name: geth
           containerPort: 9000
         - name: ui
-          containerPort: 8080" > deploy${deploy}.yaml
+          containerPort: 8080
+        volumeMounts:
+        - mountPath: /node
+          name: test-volume
+      volumes:
+      - name: test-volume
+        gcePersistentDisk:
+          pdName: my-data-disk
+          fsType:ext4" > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
 	rm deploy${deploy}.yaml
 done
