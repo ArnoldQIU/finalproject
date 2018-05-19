@@ -42,6 +42,7 @@ spec:
         volumeMounts:
         - mountPath: /home/test
           name: test-volume
+          
       volumes:
       - name: test-volume
         hostPath:
