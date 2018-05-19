@@ -37,8 +37,8 @@ spec:
           containerPort: 21000
         - name: geth
           containerPort: 9000
-        volumeMounts:
-          - name: config-volume
+      volumeMounts: 
+        - name: config-volume
           mountPath: /home/test_volume
       volumes:
         - name: config-volume
