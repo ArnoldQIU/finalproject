@@ -17,13 +17,13 @@ spec:
     matchLabels:
       app: 7node
   template:
-    metadata: 
+    metadata:
       labels:
         app: 7node
         node: node${deploy}
-    spec: 
+    spec:
       containers:
-      - name: 7node 
+      - name: 7node
         image: markpengisme/7node:node
         imagePullPolicy: Always
         command: ['/bin/sh']
@@ -36,18 +36,7 @@ spec:
         - name: ipc
           containerPort: 21000
         - name: geth
-          containerPort: 9000
-        - name: ui
-          containerPort: 8080
-        volumeMounts:
-        - mountPath: /home/test
-          name: test-volume
-
-      volumes:
-      - name: test-volume
-        hostPath:
-          path: /test
-          type: " > deploy${deploy}.yaml
+          containerPort: 9000" > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
 	rm deploy${deploy}.yaml
 done
