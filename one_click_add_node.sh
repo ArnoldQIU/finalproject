@@ -89,4 +89,5 @@ sh controlscript/generate_permissioned.sh $NUM
 sh controlscript/deploy.sh $NUM_START $NUM_END
 
 ## UI
-sh controlscript/ui.sh $NUM_START $NUM_END
+nohup /controlscript/ui.sh $NUM_START $NUM_END > /dev/null 2>&1 &
+## sh controlscript/ui.sh $NUM_START $NUM_END
