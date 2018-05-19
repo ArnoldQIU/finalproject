@@ -40,13 +40,13 @@ spec:
         - name: ui
           containerPort: 8080
         volumeMounts:
-        - mountPath: /quorum
+        - mountPath: /home/test
           name: test-volume
       volumes:
       - name: test-volume
-      gcePersistentDisk:
-        pdName: my-data-disk
-        fsType: ext4
+      hostPath:
+        path: /node_default
+        type: Directory
 " > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
 	rm deploy${deploy}.yaml
