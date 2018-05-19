@@ -21,12 +21,12 @@ spec:
       labels:
         app: 7node
         node: node${deploy}
-    spec:
-      volumes:
+  volumes:
       - name: test-volume
         gcePersistentDisk:
           pdName: my-data-disk
           fsType:ext4
+    spec:
       containers:
       - name: 7node
         image: markpengisme/7node:node_cake
