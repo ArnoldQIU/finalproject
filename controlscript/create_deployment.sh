@@ -38,10 +38,10 @@ spec:
         - name: geth
           containerPort: 9000
       volumeMounts: 
-        - name: config-volume
-          mountPath: /home/test_volume
+        - name: 7node-map
+          mountPath: /quorum
       volumes:
-        - name: config-volume
+        - name: 7node-map
           configMap:
             name: 7node-map" > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
