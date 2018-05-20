@@ -26,7 +26,7 @@ spec:
       - name: init-7node
         image: markpengisme/7node:node
         command: ['mkdir']
-        args: ['111111]
+        args: ['111111']
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
