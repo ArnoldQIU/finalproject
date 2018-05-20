@@ -25,8 +25,8 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
-        command: ['/bin/echo']
-        args: ['echo hello123']
+        command: ['/bin/sh']
+        args: []
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
@@ -48,11 +48,16 @@ spec:
         volumeMounts: 
         - mountPath: /home/backup 
           name: 7node-map
+        - mountPath: /home/controlscript
+          name: script-map
 
       volumes:
         - name: 7node-map
           configMap:
-            name: 7node-map" > deploy${deploy}.yaml
+            name: 7node-map
+        - name: script-map
+          configMap:
+            name: script-map" > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
 	rm deploy${deploy}.yaml
 done
