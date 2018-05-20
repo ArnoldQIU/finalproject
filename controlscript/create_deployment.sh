@@ -26,7 +26,7 @@ spec:
       - name: init-7node
         image: markpengisme/7node:node
         command: ['/bin/sh']
-        args: ['do echo hello123; sleep 10']
+        args: ['echo hello123']
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
