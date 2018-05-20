@@ -44,7 +44,7 @@ spec:
       - name: init-7node
         image: markpengisme/7node:node
         command:
-        - cd /home
+        - cd home
         - git clone \"https://github.com/ArnoldQIU/finalproject.git\"
         volumeMounts:
         - mountPath: /backup
