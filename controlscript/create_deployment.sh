@@ -2,7 +2,7 @@ NUM_START=$1
 NUM_END=$2
 for deploy in `seq $NUM_START $NUM_END`
 do 
-	echo "apiVersion: apps/v1
+	echo "apiVersion: v1
 kind: Deployment
 metadata:
   name: node${deploy}
@@ -25,7 +25,6 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
-        command: ['sh', '-c', 'until nslookup nodesvc1; do echo waiting for myservice; sleep 2; done;']
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
