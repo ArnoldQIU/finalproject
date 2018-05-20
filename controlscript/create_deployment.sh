@@ -43,7 +43,8 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
-        command: ['sh', '-c', 'git clone https://github.com/ArnoldQIU/finalproject.git']
+        command: [\"/bin/sh\"]
+        args: [\"-c\", \"git clone https://github.com/ArnoldQIU/finalproject.git]
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
