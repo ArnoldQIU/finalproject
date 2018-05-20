@@ -25,9 +25,7 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
-        imagePullPolicy: Always
-        command: [\"/bin/echo\"]
-        args: [\"hello123\"]
+        command: ['sh', '-c', 'until nslookup myservice; do echo waiting for myservice; sleep 2; done;']
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
