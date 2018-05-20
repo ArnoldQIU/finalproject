@@ -23,16 +23,9 @@ spec:
         node: node${deploy}
     spec:
       initContainers:
-      - name: init-7node
-        image: markpengisme/7node:node
-        command: ['chmod a+x /home/controlscript/*.sh']
-        volumeMounts:
-        - mountPath: /home/backup
-          name: 7node-map
-      initContainers:
       - name: restart
         image: markpengisme/7node:node 
-        command: ['sh']
+        command: ['echo']
         args: ['/home/controlscript/restart.sh']
       containers:
       - name: 7node
