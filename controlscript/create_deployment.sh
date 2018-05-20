@@ -25,7 +25,7 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
-        command: ['/bin/sh']
+        command: ['/bin/echo']
         args: ['echo hello123']
         volumeMounts:
         - mountPath: /home/backup
