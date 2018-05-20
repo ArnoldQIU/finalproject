@@ -38,7 +38,7 @@ spec:
         - name: geth
           containerPort: 9000
         volumeMounts: 
-        - mountPath: /backup 
+        - mountPath: /home/backup 
           name: 7node-map
       initContainers:
       - name: init-7node
