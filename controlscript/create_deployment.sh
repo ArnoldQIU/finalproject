@@ -27,7 +27,7 @@ spec:
         image: markpengisme/7node:node
         imagePullPolicy: Always
         command: [\"/bin/echo\"]
-        args: [\"hello\",\"world\"]
+        args: [\"hello123\"]
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
