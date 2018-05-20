@@ -2,7 +2,7 @@ NUM_START=$1
 NUM_END=$2
 for deploy in `seq $NUM_START $NUM_END`
 do 
-	echo "apiVersion: app/v1
+	echo "apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node${deploy}
