@@ -48,6 +48,7 @@ spec:
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
+          
       volumes:
         - name: 7node-map
           configMap:
