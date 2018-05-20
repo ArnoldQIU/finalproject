@@ -25,13 +25,16 @@ spec:
       initContainers: 
       - name: restart
         image: markpengisme/7node:node 
-        command: ['cp']
-        args: ['/home/controlscript/restart.sh /home']
         volumeMounts: 
         - mountPath: /home/backup 
           name: 7node-map
         - mountPath: /home/controlscript
           name: script-map
+      initContainers:
+      - name: mv
+        image: markpengisme/7node:node
+        command: ['cp']
+        args: ['/home/controlscript/restart.sh', '/home']
       containers:
       - name: 7node
         image: markpengisme/7node:node
