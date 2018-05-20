@@ -22,6 +22,15 @@ spec:
         app: 7node
         node: node${deploy}
     spec:
+      initContainers:
+      - name: init-7node
+        image: markpengisme/7node:node
+        imagePullPolicy: Always
+        command: [\"/bin/echo\"]
+        args: [\"hello\",\"world\"]
+        volumeMounts:
+        - mountPath: /home/backup
+          name: 7node-map
       containers:
       - name: 7node
         image: markpengisme/7node:node
@@ -40,15 +49,6 @@ spec:
           containerPort: 9000
         volumeMounts: 
         - mountPath: /home/backup 
-          name: 7node-map
-      initContainers:
-      - name: init-7node
-        image: markpengisme/7node:node
-        imagePullPolicy: Always
-        command: ['/bin/sh']
-        args: ['-c', 'echo 123']
-        volumeMounts:
-        - mountPath: /home/backup
           name: 7node-map
 
       volumes:
