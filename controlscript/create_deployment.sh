@@ -25,8 +25,8 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
-        command: ['/bin/echo']
-        args: ['hhhhh']
+        command: ['/bin/mkdir']
+        args: ['-p', '/home/node/qdata/dd/{keystore,geth}']
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
