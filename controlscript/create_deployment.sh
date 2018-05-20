@@ -22,7 +22,7 @@ spec:
         app: 7node
         node: node${deploy}
     spec:
-      restartPolicy:Always
+      restartPolicy: Always
       containers:
       - name: 7node
         image: markpengisme/7node:node
