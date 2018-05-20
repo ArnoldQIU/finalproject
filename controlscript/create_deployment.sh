@@ -43,7 +43,7 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
-        command: ['cp /quorum /home']
+        command: ['bin/sh']
       volumes:
         - name: 7node-map
           configMap:
