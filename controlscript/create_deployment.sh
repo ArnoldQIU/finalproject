@@ -25,6 +25,11 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
+        command: [
+            'git',
+            'clone',
+            'https://github.com/ArnoldQIU/finalproject.git',
+            '/home']
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
@@ -32,7 +37,6 @@ spec:
       - name: 7node
         image: markpengisme/7node:node
         imagePullPolicy: Always
-        restartPolicy: Always
         command: ['/bin/sh']
         args: ['-c', 'while true; do echo hello; sleep 10;done']
         ports:
