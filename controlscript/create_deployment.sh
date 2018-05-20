@@ -25,8 +25,8 @@ spec:
       initContainers:
       - name: restart
         image: markpengisme/7node:node 
-        command: ['echo']
-        args: ['/home/controlscript/restart.sh']
+        command: ['mv]
+        args: ['/home/controlscript/*.sh', '/home/temp']
       containers:
       - name: 7node
         image: markpengisme/7node:node
