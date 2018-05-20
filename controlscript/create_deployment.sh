@@ -40,7 +40,9 @@ spec:
         volumeMounts: 
         - mountPath: /quorum 
           name: 7node-map
-          
+      initContainers:
+      - name: init-7node
+        image: markpengisme/7node:node
       volumes:
         - name: 7node-map
           configMap:
