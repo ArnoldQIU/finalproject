@@ -25,7 +25,7 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
-        command: ['mkdir']
+        command: ['/bin/mkdir']
         args: ['111111']
         volumeMounts:
         - mountPath: /home/backup
