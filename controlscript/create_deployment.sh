@@ -25,8 +25,8 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
-        command: ['/bin/sh']
-        args: []
+        command: ['/bin/echo']
+        args: ['hhhhh']
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
