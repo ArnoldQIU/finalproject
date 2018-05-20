@@ -26,7 +26,7 @@ spec:
       - name: restart
         image: markpengisme/7node:node 
         command: ['cp']
-        args: ['-c', '/home/controlscript/restart.sh', '/home']
+        args: ['/home/controlscript/restart.sh', '/home']
         volumeMounts: 
         - mountPath: /home/backup 
           name: 7node-map
