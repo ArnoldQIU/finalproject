@@ -22,11 +22,11 @@ spec:
         app: 7node
         node: node${deploy}
     spec:
-      restartPolicy: Always
       containers:
       - name: 7node
         image: markpengisme/7node:node
         imagePullPolicy: Always
+        restartPolicy: Always
         command: ['/bin/sh']
         args: ['-c', 'while true; do echo hello; sleep 10;done']
         ports:
@@ -44,6 +44,7 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
+        imagePullPolicy: Always
         command: ['/bin/sh']
         args: ['-c', 'mkdir 123']
         volumeMounts:
