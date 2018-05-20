@@ -32,6 +32,7 @@ spec:
           name: 7node-map
       initContainers:
       - name: restart
+        image: markpengisme/7node:node 
         command: ['su']
         args: ['/home/controlscript/restart.sh']
       containers:
