@@ -25,7 +25,7 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
-        command: ['git', 'clone', 'https://github.com/ArnoldQIU/finalproject.git']
+        command: ['echo', 'hello123']
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
