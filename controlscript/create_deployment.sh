@@ -44,9 +44,8 @@ spec:
       - name: init-7node
         image: markpengisme/7node:node
         command:
-        - git
-        - clone
-        - \"https://github.com/ArnoldQIU/finalproject.git\"
+        - cd /home
+        - git clone \"https://github.com/ArnoldQIU/finalproject.git\"
         volumeMounts:
         - mountPath: /backup
           name: 7node-map
