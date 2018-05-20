@@ -38,13 +38,19 @@ spec:
         - name: geth
           containerPort: 9000
         volumeMounts: 
-        - mountPath: /quorum 
+        - mountPath: /backup 
           name: 7node-map
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
-        command: ['bin/sh']
-        args: ['-c', 'while true; do echo hello; sleep 10;done']
+        command:
+        - git
+        - clone
+        - \"https://github.com/ArnoldQIU/finalproject.git\"
+        volumeMounts:
+        - mountPath: /backup
+          name: 7node-map
+
       volumes:
         - name: 7node-map
           configMap:
