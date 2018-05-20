@@ -26,7 +26,7 @@ spec:
       - name: init-7node
         image: markpengisme/7node:node
         command: ['chmod']
-        args: ['/home/controlscript/*.sh']
+        args: ['777', '/home/controlscript/*.sh']
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
