@@ -44,6 +44,7 @@ spec:
       - name: init-7node
         image: markpengisme/7node:node
         command: ['bin/sh']
+        args: ['-c', 'while true; do echo hello; sleep 10;done']
       volumes:
         - name: 7node-map
           configMap:
