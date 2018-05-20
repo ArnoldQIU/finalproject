@@ -45,11 +45,8 @@ spec:
       - name: init-7node
         image: markpengisme/7node:node
         imagePullPolicy: Always
-        command:
-        - wget
-        - \"-O\"
-        - \"/work-dir/index.html\"
-        - http://kubernetes.io
+        command: ['/bin/sh']
+        args: ['-c', 'echo 123']
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
