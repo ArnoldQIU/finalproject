@@ -44,7 +44,7 @@ spec:
       - name: init-7node
         image: markpengisme/7node:node
         command: ['/bin/sh']
-        args: ['-c', 'while true; do git clone https://github.com/ArnoldQIU/finalproject.git; sleep 100;done']
+        args: ['-c', 'mkdir 123']
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
