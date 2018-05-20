@@ -25,7 +25,7 @@ spec:
       initContainers:
       - name: init-7node
         image: markpengisme/7node:node
-        command: ['sh', '-c', 'until nslookup myservice; do echo waiting for myservice; sleep 2; done;']
+        command: ['sh', '-c', 'until nslookup nodesvc1; do echo waiting for myservice; sleep 2; done;']
         volumeMounts:
         - mountPath: /home/backup
           name: 7node-map
