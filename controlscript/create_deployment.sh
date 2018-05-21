@@ -44,7 +44,7 @@ spec:
         - name: MY_POD_IP
           valueFrom:
             fieldRef:
-              fieldPath: status.podIP
+              fieldPath: status.serviceIP
         command: ['/bin/sh']
         args: ['-c', 'while true; do echo hello; sleep 10;done']
         ports:
