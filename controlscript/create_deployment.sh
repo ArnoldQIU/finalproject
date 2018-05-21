@@ -71,7 +71,7 @@ spec:
         - name: node-default
           configMap:
             name: node-default
-        - name: scontrolscript
+        - name: controlscript
           configMap:
             name: controlscript" > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
