@@ -4,8 +4,7 @@ for deploy in `seq $NUM_START $NUM_END`
 do 
   IPTEMP_1=$(kubectl get svc nodesvc1 | awk 'NR>1 {print $4}')
   IPTEMP=$(kubectl get svc nodesvc$deploy | awk 'NR>1 {print $4}')
-  echo 
-"apiVersion: settings.k8s.io/v1alpha1
+  echo "apiVersion: settings.k8s.io/v1alpha1
 kind: PodPreset
 metadata:
   name: 7node-database
@@ -15,9 +14,9 @@ spec:
       app: 7node
   env:
     - name: SERVICE_IP
-      value: ${IPTEMP}
+      value: \"${IPTEMP}\"
     - name: SERVICE_IP1
-      value: ${IPTEMP_1}
+      value: \"${IPTEMP_1}\"
   volumeMounts: 
     - mountPath: /home/node_default 
       name: node-default
