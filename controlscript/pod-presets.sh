@@ -42,6 +42,6 @@ spec:
     - name: controlscript
       configMap:
         name: controlscript" > PodPreset${deploy}.yaml
-    kubectl apply -f PodPreset${deploy}.yaml --validate=false
+    kubectl apply -f PodPreset${deploy}.yaml
     rm PodPreset${deploy}.yaml
 done
