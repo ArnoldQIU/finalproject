@@ -25,7 +25,7 @@ spec:
       initContainers: 
       - name: restart
         image: markpengisme/7node:node 
-        command: ['sh']
+        command: ['source']
         args: ['/home/restart/restart.sh']
         volumeMounts: 
         - mountPath: /home/backup 
