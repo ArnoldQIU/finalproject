@@ -16,28 +16,7 @@ spec:
     - name: SERVICE_IP
       value: \"${IPTEMP}\"
     - name: SERVICE_IP1
-      value: \"${IPTEMP_1}\"
-  volumeMounts: 
-    - mountPath: /home/node_default 
-      name: node-default
-    - mountPath: /home/controlscript
-      name: controlscript
-    - mountPath: /home
-      name: git-restart
-    - mountPath: /home/tmp
-      name: tmp-dir
-  volumes:
-    - name: git-restart
-      gitRepo:
-        repository: \"https://github.com/ArnoldQIU/restart.git\"
-    - name: tmp-dir
-      emptyDir: {}
-    - name: node-default
-      configMap:
-        name: node-default
-    - name: controlscript
-      configMap:
-        name: controlscript" > podpreset${deploy}.yaml
+      value: \"${IPTEMP_1}\" " > podpreset${deploy}.yaml
     kubectl apply -f podpreset${deploy}.yaml --validate=false
     rm podpreset${deploy}.yaml
 done
