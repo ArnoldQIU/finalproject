@@ -40,6 +40,11 @@ spec:
       - name: 7node
         image: markpengisme/7node:node
         imagePullPolicy: Always
+        env: 
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
         command: ['/bin/sh']
         args: ['-c', 'while true; do echo hello; sleep 10;done']
         ports:
