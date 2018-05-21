@@ -1,3 +1,3 @@
 #!/bin/bash
 mkdir /home/node
-mv /controlscript/restart.sh /home/node
+mv /controlscript /home/tmp

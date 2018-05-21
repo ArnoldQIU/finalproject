@@ -32,6 +32,10 @@ spec:
           name: 7node-map
         - mountPath: /home/controlscript
           name: script-map
+        - mountPath: /home/restart
+          name: git-restart
+        - mountPath: /home/tmp
+          name: tmp-dir
       containers:
       - name: 7node
         image: markpengisme/7node:node
@@ -48,14 +52,20 @@ spec:
         - name: geth
           containerPort: 9000
         volumeMounts: 
-        - mountPath: /home/tem
+        - mountPath: /home/tmp
           name: tmp-dir
         - mountPath: /home/backup 
           name: 7node-map
         - mountPath: /home/controlscript
           name: script-map
+        - mountPath: /home/restart
+          name: git-restart
+
 
       volumes:
+        - name: git-restart
+          gitRepo:
+            repository: "https://github.com/ArnoldQIU/restart.git"
         - name: tmp-dir
           emptyDir: {}
         - name: 7node-map
