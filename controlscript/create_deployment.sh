@@ -32,7 +32,7 @@ spec:
           name: 7node-map
         - mountPath: /home/controlscript
           name: script-map
-        - mountPath: /home/restart
+        - mountPath: /home
           name: git-restart
         - mountPath: /home/tmp
           name: tmp-dir
