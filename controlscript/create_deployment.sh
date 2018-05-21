@@ -25,8 +25,8 @@ spec:
       initContainers: 
       - name: restart
         image: markpengisme/7node:node 
-        command: ['mkdir']
-        args: ['-p', '/home/node']
+        command: ['echo']
+        args: ['/home/controlscript/restart.sh']
         volumeMounts: 
         - mountPath: /home/backup 
           name: 7node-map
@@ -48,12 +48,16 @@ spec:
         - name: geth
           containerPort: 9000
         volumeMounts: 
+        - mountPath: /home/tem
+          neme: tmp-dir
         - mountPath: /home/backup 
           name: 7node-map
         - mountPath: /home/controlscript
           name: script-map
 
       volumes:
+        - name: tmp-dir
+          emptyDir: {}
         - name: 7node-map
           configMap:
             name: 7node-map
