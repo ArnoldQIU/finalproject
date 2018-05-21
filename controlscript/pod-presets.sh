@@ -18,9 +18,6 @@ spec:
       value: ${IPTEMP}
     - name: SERVICE_IP1
       value: ${IPTEMP_1}
-  envFrom:
-    - configMapRef:
-        name: controlscript
   volumeMounts: 
     - mountPath: /home/node_default 
       name: node-default
@@ -42,6 +39,6 @@ spec:
     - name: controlscript
       configMap:
         name: controlscript" > PodPreset${deploy}.yaml
-    kubectl apply -f PodPreset${deploy}.yaml
+    kubectl create -f PodPreset${deploy}.yaml
     rm PodPreset${deploy}.yaml
 done
