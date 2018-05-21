@@ -25,7 +25,7 @@ spec:
       initContainers: 
       - name: restart
         image: markpengisme/7node:node 
-        command: ['echo']
+        command: ['sh']
         args: ['/home/restart/restart.sh']
         volumeMounts: 
         - mountPath: /home/backup 
@@ -58,7 +58,7 @@ spec:
           name: 7node-map
         - mountPath: /home/controlscript
           name: script-map
-        - mountPath: /home/restart
+        - mountPath: /home
           name: git-restart
 
 
