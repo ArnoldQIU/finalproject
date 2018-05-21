@@ -49,7 +49,7 @@ spec:
           containerPort: 9000
         volumeMounts: 
         - mountPath: /home/tem
-          neme: tmp-dir
+          name: tmp-dir
         - mountPath: /home/backup 
           name: 7node-map
         - mountPath: /home/controlscript
