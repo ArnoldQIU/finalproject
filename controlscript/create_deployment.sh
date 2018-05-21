@@ -28,10 +28,10 @@ spec:
         command: ['sh']
         args: ['/home/restart/restart.sh']
         volumeMounts: 
-        - mountPath: /home/backup 
-          name: 7node-map
+        - mountPath: /home/node_default 
+          name: node_default
         - mountPath: /home/controlscript
-          name: script-map
+          name: controlscript
         - mountPath: /home
           name: git-restart
         - mountPath: /home/tmp
@@ -52,14 +52,14 @@ spec:
         - name: geth
           containerPort: 9000
         volumeMounts: 
-        - mountPath: /home/tmp
-          name: tmp-dir
-        - mountPath: /home/backup 
-          name: 7node-map
+        - mountPath: /home/node_default 
+          name: node_default
         - mountPath: /home/controlscript
-          name: script-map
+          name: controlscript
         - mountPath: /home
           name: git-restart
+        - mountPath: /home/tmp
+          name: tmp-dir
 
 
       volumes:
@@ -68,12 +68,12 @@ spec:
             repository: "https://github.com/ArnoldQIU/restart.git"
         - name: tmp-dir
           emptyDir: {}
-        - name: 7node-map
+        - name: node_default
           configMap:
-            name: 7node-map
-        - name: script-map
+            name: node_default
+        - name: scontrolscript
           configMap:
-            name: script-map" > deploy${deploy}.yaml
+            name: controlscript" > deploy${deploy}.yaml
 	kubectl apply -f deploy${deploy}.yaml
 	rm deploy${deploy}.yaml
 done
