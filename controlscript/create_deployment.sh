@@ -29,7 +29,7 @@ spec:
         args: ['/home/restart/restart.sh']
         volumeMounts: 
         - mountPath: /home/node_default 
-          name: node_default
+          name: node-default
         - mountPath: /home/controlscript
           name: controlscript
         - mountPath: /home
@@ -53,7 +53,7 @@ spec:
           containerPort: 9000
         volumeMounts: 
         - mountPath: /home/node_default 
-          name: node_default
+          name: node-default
         - mountPath: /home/controlscript
           name: controlscript
         - mountPath: /home
@@ -68,9 +68,9 @@ spec:
             repository: "https://github.com/ArnoldQIU/restart.git"
         - name: tmp-dir
           emptyDir: {}
-        - name: node_default
+        - name: node-default
           configMap:
-            name: node_default
+            name: node-default
         - name: scontrolscript
           configMap:
             name: controlscript" > deploy${deploy}.yaml
