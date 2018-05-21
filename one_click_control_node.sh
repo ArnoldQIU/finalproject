@@ -83,6 +83,9 @@ fi
 ##service
 sh controlscript/create_service.sh $NUM_START $NUM_END
 
+##check ip is ok
+sh controlscript/check_ip.sh $NUM_START $NUM_END
+
 ##podpreset
 
 sh controlscript/pod-presets.sh $NUM_START $NUM_END
@@ -90,8 +93,7 @@ sh controlscript/pod-presets.sh $NUM_START $NUM_END
 ##deploy
 sh controlscript/create_deployment.sh $NUM_START $NUM_END
 
-##check ip is ok
-sh controlscript/check_ip.sh $NUM_START $NUM_END
+
 
 ## copy passwords	raft-init	raft-start	stop
 sh controlscript/copy_default.sh $NUM_START $NUM_END
