@@ -86,10 +86,6 @@ sh controlscript/create_service.sh $NUM_START $NUM_END
 ##check ip is ok
 sh controlscript/check_ip.sh $NUM_START $NUM_END
 
-##podpreset
-
-sh controlscript/pod-presets.sh $NUM_START $NUM_END
-
 ##deploy
 sh controlscript/create_deployment.sh $NUM_START $NUM_END
 

@@ -2,6 +2,8 @@ NUM_START=$1
 NUM_END=$2
 for deploy in `seq $NUM_START $NUM_END`
 do 
+IPTEMP_1=$(kubectl get svc nodesvc1 | awk 'NR>1 {print $4}')
+IPTEMP=$(kubectl get svc nodesvc$deploy | awk 'NR>1 {print $4}')
 	echo "apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -25,6 +27,11 @@ spec:
       initContainers: 
       - name: restart
         image: markpengisme/7node:node 
+        env: 
+        - name: SERVICE_IP
+          value: \"${IPTEMP}\"
+        - name: SERVICE_IP1
+          value: \"${IPTEMP_1}\"
         command: ['sh']
         args: ['/home/restart/restart.sh']
         volumeMounts: 
@@ -41,10 +48,10 @@ spec:
         image: markpengisme/7node:node
         imagePullPolicy: Always
         env: 
-        - name: MY_POD_IP
-          valueFrom:
-            fieldRef:
-              fieldPath: status.nodeIP
+        - name: SERVICE_IP
+          value: \"${IPTEMP}\"
+        - name: SERVICE_IP1
+          value: \"${IPTEMP_1}\"
         command: ['/bin/sh']
         args: ['-c', 'while true; do echo hello; sleep 10;done']
         ports:
