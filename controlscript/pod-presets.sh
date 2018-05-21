@@ -4,7 +4,7 @@ for deploy in `seq $NUM_START $NUM_END`
 do 
   IPTEMP_1=$(kubectl get svc nodesvc1 | awk 'NR>1 {print $4}')
   IPTEMP=$(kubectl get svc nodesvc$deploy | awk 'NR>1 {print $4}')
-  echo "apps/v1
+  echo "apiVersion: apps/v1
 kind: PodPreset
 metadata:
   name: 7node-database
