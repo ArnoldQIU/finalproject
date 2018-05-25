@@ -89,7 +89,7 @@ sh controlscript/check_ip.sh $NUM_START $NUM_END
 ##deploy
 sh controlscript/create_deployment.sh $NUM_START $NUM_END
 
-
+sleep 5
 
 ## copy passwords	raft-init	raft-start	stop
 sh controlscript/copy_default.sh $NUM_START $NUM_END
@@ -102,4 +102,6 @@ sh controlscript/generate_permissioned.sh $NUM
 sh controlscript/deploy.sh $NUM_START $NUM_END
 
 ##creat ui
-##sh controlscript/create_ui.sh 1
+if [ $FEATURE -eq 1 ] ; then
+	sh controlscript/create_ui.sh 1
+fi
