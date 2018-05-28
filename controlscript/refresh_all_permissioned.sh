@@ -1,5 +1,6 @@
 NUM_START=$1
 NUM_END=$2
+NUM=$(($1+2))
 rm node_default/permissioned-nodes.json 2> /dev/null
 echo refreshing permissioned-nodes...
 
