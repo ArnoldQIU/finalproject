@@ -42,27 +42,10 @@ do
 done
 
 
-for v in "$@"
-do
-  eval IPTEMP_$v=$(kubectl get svc nodesvc$v | awk 'NR>1 {print $4}')
-  eval ENODE_$v=$(kubectl exec $(kubectl get pods --selector=node=node$v|  awk 'NR>1 {print $1}') -- bash -c "cat /home/node/enode.key")
-  eval COMBINE="enode://"$(echo \$ENODE_$v)"@"$(echo \$IPTEMP_$v)":21000?discport=0\"&\"raftport=50400"
-  echo $COMBINE >> node_default/permissioned-nodes.json
-done
-
-sed -i -e 's/.*/"&",/' -e '$ s/.$//' -e '1i[' -e '$a]' node_default/permissioned-nodes.json
+NUM=$(kubectl get deploy | awk '{print substr($1,5,4)}')
+sh controlscript/generate_permissioned.sh $NUM
 
 
-## copy permissioned-node.json
-for v in  "$@"
-do
-	POD_NAME=$(kubectl get pods --selector=node=node$v | awk 'NR>1 {print $1}')
-	kubectl cp node_default/permissioned-nodes.json $POD_NAME:/home/node/permissioned-nodes.json
-	kubectl cp node_default/permissioned-nodes.json $POD_NAME:/home/node/qdata/dd/static-nodes.json
-	kubectl cp node_default/permissioned-nodes.json $POD_NAME:/home/node/qdata/dd/
-	echo "copy permissioned-nodes to node$v ok"
-done
-
-sh deploy.sh $NUM_START $NUM_END
+sh controlscript/deploy.sh $NUM_START $NUM_END
 
 sh controlscript/create_ui.sh 1
