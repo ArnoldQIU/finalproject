@@ -5,15 +5,7 @@ echo refreshing permissioned-nodes...
 sh controlscript/copy_default.sh $NUM_START $NUM_END
 NUM=$(kubectl get deploy | awk '{print substr($1,5,4)}')
 sh controlscript/generate_permissioned.sh $NUM
-for v in `seq $NUM_START $NUM_END`
-do
-	kubectl exec $(kubectl get pods --selector=node=node$v|  awk 'NR>1 {print $1}') -- bash -c "cd home/node && ./stop.sh"
-done
 
-for v in `seq $NUM_START $NUM_END`
-do
-	kubectl exec $(kubectl get pods --selector=node=node$v|  awk 'NR>1 {print $1}') -- bash -c "cd home/node && ./raft-init.sh && ./raft-start.sh" &
-	echo -e "No.$v node deploy ok\n\n"
-done
+sh controlscript/deploy.sh $NUM_START $NUM_END
 
-sh node_default/create_ui.sh 1
+cd /node_default && sh node_default/create_ui.sh 1
