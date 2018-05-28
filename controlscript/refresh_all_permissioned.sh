@@ -63,13 +63,13 @@ do
 	echo "copy permissioned-nodes to node$v ok"
 done
 
-for v in `seq $NUM_START $NUM_END`
+for v in "$@"
 do
 	kubectl exec $(kubectl get pods --selector=node=node$v|  awk 'NR>1 {print $1}') -- bash -c \
 	"cd home/node && ./stop.sh"
 done
 
-for v in `seq $NUM_START $NUM_END`
+for v in "$@"
 do
 	kubectl exec $(kubectl get pods --selector=node=node$v|  awk 'NR>1 {print $1}') -- bash -c \
 	"cd home/node && ./raft-init.sh && ./raft-start.sh" &
