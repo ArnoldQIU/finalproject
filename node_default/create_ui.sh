@@ -45,9 +45,9 @@ kubectl apply -f ui_deploy.yaml
 rm  ui_deploy.yaml
 
 IP=$(kubectl get svc  | awk 'NR=='$NUM' {print $4}')
-sed -i "26s/.*/geth.url=http\\\:$IP\\\:22000/" node_default/application.properties
+sed -i "26s/.*/geth.url=http\\\:$IP\\\:22000/" application.properties
 UI_NAME=$(kubectl get pods --selector=ui=ui | awk 'NR>1 {print $1}')
-kubectl cp node_default/application.properties $UI_NAME:/home/data/local/applicati
+kubectl cp application.properties $UI_NAME:/home/data/local/applicati
 on.properties
 echo "Copy application.properties to ui ok"
 kubectl exec $UI_NAME -- bash -c 'rm -rf home/data/geth && fuser -k 8080/tcp'
