@@ -1,6 +1,5 @@
 NUM_START=$1
 NUM_END=$2
-rm node_default/permissioned-nodes.json 2> /dev/null
 echo refreshing permissioned-nodes...
 ## copy passwords	raft-init	raft-start	stop
 sh controlscript/copy_default.sh $NUM_START $NUM_END
