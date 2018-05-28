@@ -33,7 +33,7 @@ do
                 DOWN=true
         fi
     done'
-	CREATE_CONSTELLATION_START="echo '$GENERATE_CONSTELLATION_START' > constellation-start.sh && chmod 755 constellation-start.sh"
+	CREATE_CONSTELLATION_START="rm constellation-start.sh && echo '$GENERATE_CONSTELLATION_START' > constellation-start.sh && chmod 755 constellation-start.sh"
 	kubectl exec $(kubectl get pods --selector=node=node$v|  awk 'NR>1 {print $1}') -- bash -c \
 		"$GENERATE_DIR && \
 		 $GENERATE_KEY && \
