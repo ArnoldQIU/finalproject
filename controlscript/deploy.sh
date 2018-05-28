@@ -3,7 +3,7 @@ NUM_END=$2
 for v in `seq $NUM_START $NUM_END`
 do
 	kubectl exec $(kubectl get pods --selector=node=node$v|  awk 'NR>1 {print $1}') -- bash -c \
-	"cd home/node && ./stop.sh"
+	"cd home/node && chmod 755 *.sh && ./stop.sh"
 done
 
 for v in `seq $NUM_START $NUM_END`
