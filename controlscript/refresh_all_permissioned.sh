@@ -7,7 +7,7 @@ echo refreshing permissioned-nodes...
 NUM=$(kubectl get deploy | awk '{print substr($1,5,4)}')
 sh controlscript/generate_permissioned.sh $NUM
 echo deplolying...
-sleep 10
+sleep 1
 ./controlscript/deploy.sh $NUM_START $NUM_END
 
 cd /node_default && sh node_default/create_ui.sh 1
