@@ -1,6 +1,8 @@
 #!/bin/bash
 NUM_START=$1
 NUM_END=$2
+DEPLOY1=$3
+DEPLOY2=$4
 echo refreshing permissioned-nodes...
 ## copy passwords	raft-init	raft-start	stop
 sh controlscript/copy_default.sh $NUM_START $NUM_END
