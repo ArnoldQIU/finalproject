@@ -49,4 +49,9 @@
 
 ## 節點失去連線&website斷掉  
 ### 使用方式  
--`./refresh_all_permissioned.sh 1 $NODE_END_NUMBER`
+-`./refresh_all_permissioned.sh 1 $NODE_END_NUMBER`  
+
+## 第三方程式
+- https://github.com/jpmorganchase/quorum  
+- https://github.com/jpmorganchase/cakeshop
+
