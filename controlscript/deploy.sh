@@ -1,4 +1,3 @@
-#!/bin/bash
 NUM_START=$1
 NUM_END=$2
 for v in `seq $NUM_START $NUM_END`
