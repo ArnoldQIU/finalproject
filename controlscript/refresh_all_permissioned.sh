@@ -6,8 +6,4 @@ echo refreshing permissioned-nodes...
 sh controlscript/copy_default.sh $NUM_START $NUM_END
 NUM=$(kubectl get deploy | awk '{print substr($1,5,4)}')
 sh controlscript/generate_permissioned.sh $NUM
-echo deplolying...
-sleep 1
-sh controlscript/deploy.sh $NUM_START $NUM_END
-
-cd /node_default && sh node_default/create_ui.sh 1
+echo "use deploy.sh and create_ui.sh to start the website" 
