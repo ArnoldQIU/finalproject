@@ -10,4 +10,4 @@ echo "use deploy.sh and create_ui.sh to start the website"
 sleep 1
 sh controlscript/deploy.sh $NUM_START $NUM_END
 
-sh node_default/create_ui.sh 1
+sh controlscript/create_ui.sh 1
